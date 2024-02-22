@@ -1,20 +1,16 @@
-from typing import Optional, List, Tuple
-from datetime import datetime, timedelta
-
 import joblib
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from matplotlib.figure import Figure
 from matplotlib.axes import Axes
+from matplotlib.figure import Figure
 from scipy.interpolate import splrep, splev
 
-from config import config
-from apps.collect_time import generaet_datetime_list
-from apps.predictModels import predictModels
+from typing import Optional, List, Tuple
+from datetime import datetime, timedelta
+
+from app.predictModels import predictModels
+from app.collect_time import generaet_datetime_list
 
 
 class PlotGraphs():
@@ -125,4 +121,3 @@ class PlotGraphs():
 
 
 plotGraph = PlotGraphs()
-

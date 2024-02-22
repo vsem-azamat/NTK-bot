@@ -6,8 +6,8 @@ import logging
 import asyncio
 from datetime import time
 
-from config import config
-from apps.schedule_functions import scheduler, recieve_ntk_data, daily_graph
+from app.config import config
+from app.schedule_functions import scheduler, recieve_ntk_data, daily_graph
 
 
 # Initialize bot and dispatcher
@@ -27,8 +27,8 @@ file_handler.setFormatter(formatter)
 logging.getLogger().addHandler(file_handler)
 
 async def on_startup(dp):
-    from config import setup
-    from apps.predictModels import predictModels
+    from app.config import setup
+    from app.predictModels import predictModels
 
     logging.info("Starting...")
 
@@ -43,5 +43,5 @@ async def on_startup(dp):
 
 if __name__ == '__main__':
     from aiogram import executor
-    from hanlders import dp
+    from app.hanlders import dp
     executor.start_polling(dp, on_startup=on_startup, skip_updates=True)

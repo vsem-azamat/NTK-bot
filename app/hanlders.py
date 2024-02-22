@@ -5,11 +5,11 @@ from aiogram import types
 from aiogram.dispatcher.filters import Command
 
 from bot import dp, bot
-from config import NtkGroup, SuperAdmins, config
-from apps.parse_functions import get_ntk_quantity
-from apps.plot_functions import plotGraph
-from apps.predictModels import predictModels
-from apps.weather_api import weatherAPI
+from app.config import NtkGroup, SuperAdmins, config
+from app.parse_functions import get_ntk_quantity
+from app.plot_functions import plotGraph
+from app.predictModels import predictModels
+from app.weather_api import weatherAPI
 
 
 @dp.message_handler(Command("anon", prefixes='!/'), )
@@ -48,15 +48,11 @@ async def ask_ntk(msg: types.Message):
     "/ntk - Показать кол-во людей в NTK\n"\
     "/graph - Показать график посещений NTK\n"
     keyboard = types.InlineKeyboardMarkup()
+    keyboard.add(types.InlineKeyboardButton(text='📚NTK chat', url='https://t.me/chat_ntk')) # type: ignore
+    keyboard.add(types.InlineKeyboardButton(text='📣NTK info', url='https://t.me/ntk_info')) # type: ignore
     keyboard.add(
-        types.InlineKeyboardButton(text='📚NTK chat', url='https://t.me/chat_ntk'),        
-    )
-    keyboard.add(
-        types.InlineKeyboardButton(text='📣NTK info', url='https://t.me/ntk_info')
-    )
-    keyboard.add(
-        types.InlineKeyboardButton(text='👨‍🎓Admin', url='t.me/vsem_azamat'),
-        types.InlineKeyboardButton(text='🧑‍💻GitHub', url='github.com/vsem-azamat/ntk_bot/')
+        types.InlineKeyboardButton(text='👨‍🎓Admin', url='t.me/vsem_azamat'), # type: ignore
+        types.InlineKeyboardButton(text='🧑‍💻GitHub', url='github.com/vsem-azamat/ntk_bot/') # type: ignore
     )
     message = await msg.answer(text, reply_markup=keyboard, disable_web_page_preview=True)
     await msg.delete()

@@ -5,12 +5,12 @@ from datetime import datetime, time
 
 from aiogram import Bot, types
 
-from config import config
-from apps.plot_functions import plotGraph
-from apps.collect_time import generaet_time_list
-from apps.parse_functions import get_ntk_quantity
-from apps.weather_api import weatherAPI
-from apps.predictModels import predictModels
+from app.config import config
+from app.plot_functions import plotGraph
+from app.collect_time import generaet_time_list
+from app.parse_functions import get_ntk_quantity
+from app.weather_api import weatherAPI
+from app.predictModels import predictModels
 
 
 async def scheduler(bot: Bot, func: object, target_times: List[time]) -> None:

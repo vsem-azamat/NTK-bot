@@ -2,8 +2,8 @@ import os
 from dotenv import main
 from typing import List
 
-from aiogram.dispatcher.filters import BoundFilter
 from aiogram import types, Dispatcher
+from aiogram.dispatcher.filters import BoundFilter
 
 
 # CONST VARIABLES

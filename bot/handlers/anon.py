@@ -77,7 +77,7 @@ async def anon(message: types.Message, bot: Bot):
 
         # Check: Anon isn't empty
         text = message.text[6:].strip()
-        if not text:
+        if text:
 
             # Check: Anon is enabled
             if not cnfg.ANON_ENABLED:
@@ -96,7 +96,8 @@ async def anon(message: types.Message, bot: Bot):
             await bot.send_message(
                 chat_id=cnfg.ID_NTK_BIG_CHAT,
                 text=text_head + text,
-                parse_mode='HTML'
+                parse_mode='HTML',
+                disable_web_page_preview=True
             )
         else:
             await message.reply("🚫<b>Анон не может быть пустым</b>🚫", parse_mode='HTML')

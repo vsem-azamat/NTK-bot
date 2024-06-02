@@ -86,7 +86,7 @@ async def anon(message: types.Message, bot: Bot):
                 return
 
             # Check: Random reveal identity
-            reveal_identity = random.random() < cnfg.REVEAL_ANON_PROBABILITY
+            reveal_identity = random.random() > cnfg.REVEAL_ANON_PROBABILITY
             username = user_link = message.from_user.username
             user_link = message.from_user.full_name
             if username: user_link = f'<a href="t.me/{username}">{message.from_user.full_name}</a>'
